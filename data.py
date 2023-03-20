@@ -104,14 +104,14 @@ class BrainIBISDataset(Dataset):
         return verts, faces,vertex_features,face_features, Y
 
 class BrainIBISDataModule(pl.LightningDataModule):
-    def __init__(self,batch_size,list_demographic,path_data,train_path,val_path,test_path,list_path_ico,resampling='no_resampling',train_transform=None,val_and_test_transform=None, num_workers=6, pin_memory=False, persistent_workers=False):
+    def __init__(self,batch_size,list_demographic,path_data,data_train,data_val,data_test,list_path_ico,resampling='no_resampling',train_transform=None,val_and_test_transform=None, num_workers=6, pin_memory=False, persistent_workers=False):
         super().__init__()
         self.batch_size = batch_size 
         self.list_demographic = list_demographic
         self.path_data = path_data
-        self.train_path = train_path
-        self.val_path = val_path
-        self.test_path = test_path
+        self.data_train = data_train
+        self.data_val = data_val
+        self.data_test = data_test
         self.list_path_ico = list_path_ico
         self.resampling = resampling
         self.train_transform = train_transform
@@ -123,9 +123,9 @@ class BrainIBISDataModule(pl.LightningDataModule):
         ### weights computing
         self.weights = []
 
-        self.df_train = pd.read_csv(self.train_path)
-        self.df_val = pd.read_csv(self.val_path)
-        self.df_test = pd.read_csv(self.test_path)
+        self.df_train = pd.read_csv(self.data_train)
+        self.df_val = pd.read_csv(self.data_val)
+        self.df_test = pd.read_csv(self.data_test)
 
         y_train = np.array(self.df_train.loc[:,'ASD_administered'])
         labels = np.unique(y_train)

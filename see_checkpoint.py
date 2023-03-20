@@ -52,9 +52,9 @@ mean = 0
 std = 0.01
 
 path_data = "/ASD/Autism/IBIS/Proc_Data/IBIS_sa_eacsf_thickness"
-train_path = "/NIRAL/work/ugor/source/brain_classification/Classification_ASD/Data/dataASDdemographicsLR-V06_12fold0_train.csv"
-val_path = "/NIRAL/work/ugor/source/brain_classification/Classification_ASD/Data/dataASDdemographicsLR-V06_12fold0_val.csv"
-test_path = "/NIRAL/work/ugor/source/brain_classification/Classification_ASD/Data/dataASDdemographicsLR-V06_12fold0_test.csv"
+data_train = "/NIRAL/work/ugor/source/brain_classification/Classification_ASD/Data/dataASDdemographicsLR-V06_12fold0_train.csv"
+data_val = "/NIRAL/work/ugor/source/brain_classification/Classification_ASD/Data/dataASDdemographicsLR-V06_12fold0_val.csv"
+data_test = "/NIRAL/work/ugor/source/brain_classification/Classification_ASD/Data/dataASDdemographicsLR-V06_12fold0_test.csv"
 path_ico_left = '/NIRAL/tools/atlas/Surface/Sphere_Template/sphere_f327680_v163842.vtk'
 path_ico_right = '/NIRAL/tools/atlas/Surface/Sphere_Template/sphere_f327680_v163842.vtk'
 list_path_ico = [path_ico_left,path_ico_right]
@@ -83,7 +83,7 @@ list_demographic = ['Gender','MRI_Age','AmygdalaLeft','HippocampusLeft','LatVent
 ##############################################################################################
 
 
-brain_data = BrainIBISDataModule(batch_size,list_demographic,path_data,train_path,val_path,test_path,list_path_ico,train_transform = train_transform,val_and_test_transform =val_and_test_transform,num_workers=num_workers)#MLR
+brain_data = BrainIBISDataModule(batch_size,list_demographic,path_data,data_train,data_val,data_test,list_path_ico,train_transform = train_transform,val_and_test_transform =val_and_test_transform,num_workers=num_workers)#MLR
 nbr_features = brain_data.get_features()
 nbr_demographic = brain_data.get_nbr_demographic()
 weights = brain_data.get_weigths()
