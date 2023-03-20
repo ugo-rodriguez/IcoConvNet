@@ -30,6 +30,27 @@ in classification.py :
 
 in data.py : 
 
-- getitem : getitem allows to extract information of each subject. 1 subject is 1 brain with 2 hemispheres (left and right). The ouputs of getitem are 'verts', 'faces', 'vertex_features', 'face_features' tensors for each hemisphere, 'demographics' tensor and 'Y' for the class. 
+- getitem : getitem allows to extract information of each subject. 1 subject is 1 brain with 2 hemispheres (left and right). In this case, Each hemisphere has 3 features (eacsf, sa, thickness). You need maybe to change for your own data and your own features. The ouputs of getitem are 'verts', 'faces', 'vertex_features', 'face_features' tensors for each hemisphere, 'demographics' tensor and 'Y' for the class. You can maybe change the output if you don't need to load like 2 3D Objects for each subject.
+
+in net.py :
+
+- train_step / val_step / test_step / forward / init / get_features : if you don't load 2 3D Objects for each subject, you need to change some lines and remove 1 path (left or right path) to be sure that this code works with your data.
+
+
+
+
+
+
+
+
+
+
+
+
+
+What is see_checkpoint.py ?
+
+This python file is just to read 1 saved checkpoint to see again the classification report. 
+
 
 
