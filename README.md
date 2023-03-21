@@ -1,14 +1,7 @@
 (PS : my english is maybe approximate, sorry for that =) )
 
 
-
-
-<<<<<<< HEAD
 # How to use this project ?
-=======
-How to use this project ?
->>>>>>> 23ca5edff62236e0b00e597509e5b34f419ee27f
-
 classification.py is the main of my project. To use BrainIcoConv, the method created by us, you have to run classification.py. We are going to see and explain the lines that you can change or in this project.
 
 in classification.py : 
@@ -49,19 +42,7 @@ in net.py :
 
 
 
-
-
-
-<<<<<<< HEAD
 # What is see_checkpoint.py ?
 
 This python file is just to read 1 saved checkpoint to see again the classification report. 
 
-=======
-What is see_checkpoint.py ?
-
-This python file is just to read 1 saved checkpoint to see again the classification report. 
-
-
-
->>>>>>> 23ca5edff62236e0b00e597509e5b34f419ee27f
